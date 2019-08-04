@@ -22,7 +22,7 @@ Button btnTellJoke;
         btnTellJoke.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new EndpointsAsyncTask(MainActivity.this).execute();
+                new EndpointsAsyncTask(getApplicationContext()).execute();
             }
         });
     }

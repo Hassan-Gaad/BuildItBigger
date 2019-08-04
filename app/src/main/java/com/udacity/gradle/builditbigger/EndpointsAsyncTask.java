@@ -3,6 +3,7 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.util.Pair;
 
 import com.example.androidjokes.TellJoke;
@@ -42,7 +43,8 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
         try {
             return myApiService.insertJoke(new MyBean()).execute().getJoke();
         } catch (IOException e) {
-            return e.getMessage();
+            Log.d("EndpointAsyncTask",e.getMessage());
+            return null;
         }
     }
 

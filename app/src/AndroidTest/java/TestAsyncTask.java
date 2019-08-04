@@ -5,10 +5,12 @@ import android.util.Log;
 
 import com.udacity.gradle.builditbigger.EndpointsAsyncTask;
 
+import junit.framework.Assert;
 import junit.framework.TestCase;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
 public class TestAsyncTask  {
@@ -18,7 +20,7 @@ public class TestAsyncTask  {
     public void test() {
         Log.v("NoStringTest", "Running AsyncStringTest test");
         String result = null;
-        EndpointsAsyncTask endpointsAsyncTask = new EndpointsAsyncTask(InstrumentationRegistry.getContext());
+        EndpointsAsyncTask endpointsAsyncTask = new EndpointsAsyncTask(InstrumentationRegistry.getTargetContext());
         endpointsAsyncTask.execute();
         try {
             result = endpointsAsyncTask.get();
@@ -26,6 +28,7 @@ public class TestAsyncTask  {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        TestCase.assertNotNull(result);
+            assertNotNull(result);
+
     }
 }
